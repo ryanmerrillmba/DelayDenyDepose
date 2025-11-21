@@ -1,0 +1,53 @@
+import React from 'react';
+import HeroSection from '../components/HeroSection';
+import ProblemSection from '../components/ProblemSection';
+import SolutionSection from '../components/SolutionSection';
+import EmbeddedCheckoutForm from '../components/EmbeddedCheckoutForm';
+import bookCover from '../assets/book-cover.jpg';
+
+const LandingPageSarah = () => {
+    return (
+        <div className="landing-page sarah-theme">
+            {/* Headline Section */}
+            <section style={{
+                backgroundColor: '#ffffff',
+                padding: '3rem 0 1rem 0',
+                textAlign: 'center'
+            }}>
+                <div className="container">
+                    <h1 style={{
+                        fontSize: '3rem',
+                        color: '#0a0a0a',
+                        marginBottom: '1rem',
+                        fontWeight: 'bold'
+                    }}>
+                        WHY DOES IT COST SO MUCH?
+                    </h1>
+                    <p style={{
+                        fontSize: '1.5rem',
+                        color: '#4a4a4a',
+                        maxWidth: '800px',
+                        margin: '0 auto'
+                    }}>
+                        You do everything right. You pay your premiums. Yet the bills keep piling up. Read the investigative story that explains exactly where your money is going.
+                    </p>
+                </div>
+            </section>
+
+            <HeroSection
+                bookCover={bookCover}
+                showCheckoutForm={true}
+                CheckoutFormComponent={EmbeddedCheckoutForm}
+            />
+            <ProblemSection />
+            <SolutionSection />
+
+            {/* Footer Placeholder */}
+            <footer style={{ padding: '2rem', textAlign: 'center', borderTop: '1px solid var(--color-border)', marginTop: '2rem' }}>
+                <p>&copy; 2025 Delay - Deny - Depose. All rights reserved.</p>
+            </footer>
+        </div>
+    );
+};
+
+export default LandingPageSarah;
