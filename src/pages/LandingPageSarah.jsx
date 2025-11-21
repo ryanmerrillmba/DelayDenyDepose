@@ -45,6 +45,9 @@ const LandingPageSarah = () => {
             {/* Footer Placeholder */}
             <footer style={{ padding: '2rem', textAlign: 'center', borderTop: '1px solid var(--color-border)', marginTop: '2rem' }}>
                 <p>&copy; 2025 Delay - Deny - Depose. All rights reserved.</p>
+                <div style={{ marginTop: '1rem' }}>
+                    <a href="/blog" style={{ color: '#666', textDecoration: 'none', fontSize: '0.9rem' }}>Read our Blog</a>
+                </div>
             </footer>
         </div>
     );

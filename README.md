@@ -1,16 +1,51 @@
-# React + Vite
+# Delay - Deny - Depose
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+## Overview
+"Delay, Deny, Depose" is a book and movement exposing the tactics used by insurance companies to avoid paying claims. This repository contains the source code for the landing page and checkout funnel for the book.
 
-Currently, two official plugins are available:
+## Features
+- **Landing Page**: High-converting sales page with educational content.
+- **Checkout Funnel**: Integrated Stripe checkout with a two-step order form and bump offer.
+- **Blog**: Educational blog posts with SEO optimization (dynamic meta tags, structured data).
+- **Responsive Design**: Optimized for mobile and desktop.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## Tech Stack
+- **Frontend**: React, Vite
+- **Styling**: CSS (Vanilla)
+- **Routing**: React Router DOM
+- **SEO**: React Helmet Async
+- **Payments**: Stripe Elements
 
-## React Compiler
+## Setup & Installation
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+1. **Clone the repository:**
+   ```bash
+   git clone https://github.com/ryanmerrillmba/DelayDenyDepose.git
+   cd DelayDenyDepose
+   ```
 
-## Expanding the ESLint configuration
+2. **Install dependencies:**
+   ```bash
+   npm install
+   ```
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+3. **Run the development server:**
+   ```bash
+   npm run dev
+   ```
+
+4. **Build for production:**
+   ```bash
+   npm run build
+   ```
+
+## Configuration
+- **Stripe**: Update the Stripe Public Key in `src/components/OrderForm.jsx` before deploying to production.
+
+## Deployment
+This project is ready to be deployed to platforms like Cloudflare Pages, Vercel, or Netlify.
+- **Build Command**: `npm run build`
+- **Output Directory**: `dist`
+
+## License
+All rights reserved.

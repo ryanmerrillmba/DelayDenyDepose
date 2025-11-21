@@ -310,7 +310,7 @@ const EmbeddedCheckoutForm = () => {
                     marginTop: '0.75rem',
                     lineHeight: '1.4'
                 }}>
-                    * Delay - Deny - Depose retails for $29.95, but we're offering it for just $20!
+                    * Delay - Deny - Depose retails for $15.99, but we're offering it for Free!
                     We just ask that you pay shipping / handling to receive it (just $9.95 US).
                     Your information is secure and will not be shared.
                 </p>

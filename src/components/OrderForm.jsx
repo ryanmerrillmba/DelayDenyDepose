@@ -49,7 +49,7 @@ const CheckoutForm = () => {
         }, 2000);
     };
 
-    const totalAmount = bumpAdded ? 20 + 17 : 20; // Book $20 + Bump $17
+    const totalAmount = bumpAdded ? 9.95 + 17 : 9.95; // Shipping $9.95 + Bump $17
 
     return (
         <form onSubmit={handleSubmit} style={{ maxWidth: '600px', margin: '0 auto', textAlign: 'left' }}>
@@ -149,7 +149,11 @@ const CheckoutForm = () => {
                 <div style={{ borderTop: '2px solid #eee', paddingTop: '1.5rem', marginTop: '1rem' }}>
                     <div style={{ display: 'flex', justifyContent: 'space-between', marginBottom: '0.5rem', fontSize: '1.1rem' }}>
                         <span>Delay - Deny - Depose (Paperback):</span>
-                        <span>$20.00</span>
+                        <span>FREE</span>
+                    </div>
+                    <div style={{ display: 'flex', justifyContent: 'space-between', marginBottom: '0.5rem', fontSize: '1.1rem' }}>
+                        <span>Shipping & Handling:</span>
+                        <span>$9.95</span>
                     </div>
                     {bumpAdded && (
                         <div style={{ display: 'flex', justifyContent: 'space-between', marginBottom: '0.5rem', fontSize: '1.1rem', color: 'var(--color-action)' }}>

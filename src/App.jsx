@@ -1,5 +1,6 @@
 import React from 'react';
-import { Routes, Route, Navigate } from 'react-router-dom';
+import { BrowserRouter as Router, Routes, Route, Navigate } from 'react-router-dom';
+import { HelmetProvider } from 'react-helmet-async';
 import LandingPageSarah from './pages/LandingPageSarah';
 import LandingPageMark from './pages/LandingPageMark';
 import CheckoutPage from './pages/CheckoutPage';
@@ -9,7 +10,7 @@ import BlogPost from './pages/BlogPost';
 
 function App() {
   return (
-    <div className="app-container">
+    <HelmetProvider>
       <Routes>
         {/* Two Doors Strategy */}
         <Route path="/" element={<Navigate to="/fight-back" replace />} />
@@ -24,7 +25,7 @@ function App() {
         <Route path="/blog" element={<BlogIndex />} />
         <Route path="/blog/:slug" element={<BlogPost />} />
       </Routes>
-    </div>
+    </HelmetProvider>
   );
 }
 
