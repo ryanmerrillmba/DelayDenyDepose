@@ -44,9 +44,12 @@ const LandingPageSarah = () => {
 
             {/* Footer Placeholder */}
             <footer style={{ padding: '2rem', textAlign: 'center', borderTop: '1px solid var(--color-border)', marginTop: '2rem' }}>
-                <p>&copy; 2025 Delay - Deny - Depose. All rights reserved.</p>
-                <div style={{ marginTop: '1rem' }}>
+                <p>Cambia Products LLC - &copy; 2025 All Rights Reserved | 1860 Logan Ave Salt Lake City, UT 84108</p>
+                <p style={{ marginTop: '0.5rem', fontSize: '0.9rem', color: '#666' }}>Contact Us: support@delaydenydeposebook.com</p>
+                <div style={{ marginTop: '1rem', display: 'flex', justifyContent: 'center', gap: '1.5rem' }}>
                     <a href="/blog" style={{ color: '#666', textDecoration: 'none', fontSize: '0.9rem' }}>Read our Blog</a>
+                    <a href="/privacy" style={{ color: '#666', textDecoration: 'none', fontSize: '0.9rem' }}>Privacy Policy</a>
+                    <a href="/terms" style={{ color: '#666', textDecoration: 'none', fontSize: '0.9rem' }}>Terms of Service</a>
                 </div>
             </footer>
         </div>

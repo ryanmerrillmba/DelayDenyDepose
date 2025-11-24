@@ -2,6 +2,14 @@ import React, { useState } from 'react';
 import { motion } from 'framer-motion';
 
 const EmbeddedCheckoutForm = () => {
+    const [isMobile, setIsMobile] = useState(window.innerWidth < 768);
+
+    React.useEffect(() => {
+        const handleResize = () => setIsMobile(window.innerWidth < 768);
+        window.addEventListener('resize', handleResize);
+        return () => window.removeEventListener('resize', handleResize);
+    }, []);
+
     const [formData, setFormData] = useState({
         firstName: '',
         lastName: '',
@@ -34,9 +42,11 @@ const EmbeddedCheckoutForm = () => {
                 borderRadius: '6px',
                 boxShadow: '0 6px 18px rgba(0,0,0,0.15)',
                 overflow: 'hidden',
-                transform: 'scale(0.75)',
+                transform: isMobile ? 'none' : 'scale(0.75)',
                 transformOrigin: 'top left',
-                marginLeft: '3rem'
+                marginLeft: isMobile ? '0' : '3rem',
+                width: isMobile ? '100%' : 'auto',
+                marginBottom: isMobile ? '2rem' : '0'
             }}
         >
             {/* Header */}
@@ -243,9 +253,49 @@ const EmbeddedCheckoutForm = () => {
                     <option value="CO">Colorado</option>
                     <option value="CT">Connecticut</option>
                     <option value="DE">Delaware</option>
+                    <option value="DC">District Of Columbia</option>
                     <option value="FL">Florida</option>
                     <option value="GA">Georgia</option>
-                    {/* Add remaining states as needed */}
+                    <option value="HI">Hawaii</option>
+                    <option value="ID">Idaho</option>
+                    <option value="IL">Illinois</option>
+                    <option value="IN">Indiana</option>
+                    <option value="IA">Iowa</option>
+                    <option value="KS">Kansas</option>
+                    <option value="KY">Kentucky</option>
+                    <option value="LA">Louisiana</option>
+                    <option value="ME">Maine</option>
+                    <option value="MD">Maryland</option>
+                    <option value="MA">Massachusetts</option>
+                    <option value="MI">Michigan</option>
+                    <option value="MN">Minnesota</option>
+                    <option value="MS">Mississippi</option>
+                    <option value="MO">Missouri</option>
+                    <option value="MT">Montana</option>
+                    <option value="NE">Nebraska</option>
+                    <option value="NV">Nevada</option>
+                    <option value="NH">New Hampshire</option>
+                    <option value="NJ">New Jersey</option>
+                    <option value="NM">New Mexico</option>
+                    <option value="NY">New York</option>
+                    <option value="NC">North Carolina</option>
+                    <option value="ND">North Dakota</option>
+                    <option value="OH">Ohio</option>
+                    <option value="OK">Oklahoma</option>
+                    <option value="OR">Oregon</option>
+                    <option value="PA">Pennsylvania</option>
+                    <option value="RI">Rhode Island</option>
+                    <option value="SC">South Carolina</option>
+                    <option value="SD">South Dakota</option>
+                    <option value="TN">Tennessee</option>
+                    <option value="TX">Texas</option>
+                    <option value="UT">Utah</option>
+                    <option value="VT">Vermont</option>
+                    <option value="VA">Virginia</option>
+                    <option value="WA">Washington</option>
+                    <option value="WV">West Virginia</option>
+                    <option value="WI">Wisconsin</option>
+                    <option value="WY">Wyoming</option>
                 </select>
 
                 {/* City and Zip */}
@@ -301,6 +351,9 @@ const EmbeddedCheckoutForm = () => {
                         YES! I WANT THIS BOOK NOW!
                     </div>
                 </button>
+                <p style={{ fontSize: '0.65rem', color: '#666', textAlign: 'center', marginTop: '0.5rem', lineHeight: '1.3' }}>
+                    By clicking above, you agree to pay $9.95 for shipping & handling. This is a one-time payment, not a subscription.
+                </p>
 
                 {/* Disclaimer */}
                 <p style={{

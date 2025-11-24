@@ -42,11 +42,70 @@ const CheckoutForm = () => {
             return;
         }
 
-        // Simulate payment processing
-        setTimeout(() => {
+        try {
+            // 1. Create PaymentIntent on the server
+            const response = await fetch('/create-payment-intent', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({
+                    amount: Math.round(totalAmount * 100), // Convert to cents
+                    currency: 'usd'
+                }),
+            });
+
+            const data = await response.json();
+
+            if (data.error) {
+                throw new Error(data.error);
+            }
+
+            // 2. Confirm the payment on the client
+            const cardElement = elements.getElement(CardElement);
+            const { error, paymentIntent } = await stripe.confirmCardPayment(data.clientSecret, {
+                payment_method: {
+                    card: cardElement,
+                    billing_details: {
+                        name: formData.fullName,
+                        email: formData.email,
+                        address: {
+                            line1: formData.address,
+                            city: formData.city,
+                            state: formData.state,
+                            postal_code: formData.zip,
+                            country: 'US',
+                        },
+                    },
+                },
+            });
+
+            if (error) {
+                throw new Error(error.message);
+            }
+
+            if (paymentIntent.status === 'succeeded') {
+                // 3. Notify backend to send email
+                try {
+                    await fetch('/notify-order', {
+                        method: 'POST',
+                        headers: { 'Content-Type': 'application/json' },
+                        body: JSON.stringify({
+                            paymentIntentId: paymentIntent.id,
+                            customerDetails: formData
+                        }),
+                    });
+                } catch (notifyErr) {
+                    console.error('Failed to send notification:', notifyErr);
+                    // Don't block the user flow if email fails, just log it
+                }
+
+                window.location.href = '/thank-you';
+            }
+
+        } catch (err) {
+            alert('Payment failed: ' + err.message);
+        } finally {
             setIsProcessing(false);
-            window.location.href = '/thank-you';
-        }, 2000);
+        }
     };
 
     const totalAmount = bumpAdded ? 9.95 + 17 : 9.95; // Shipping $9.95 + Bump $17
@@ -175,6 +234,9 @@ const CheckoutForm = () => {
                 >
                     {isProcessing ? 'Processing...' : `Complete Order - $${totalAmount.toFixed(2)}`}
                 </button>
+                <p style={{ fontSize: '0.8rem', color: '#666', textAlign: 'center', marginTop: '0.5rem' }}>
+                    By clicking above, you agree to pay ${totalAmount.toFixed(2)}. This is a one-time payment, not a subscription.
+                </p>
 
                 <button
                     onClick={() => setStep(1)}
