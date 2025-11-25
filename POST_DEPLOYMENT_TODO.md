@@ -27,6 +27,10 @@
     - Verify the "Thank You" page loads correctly.
 - [ ] **Mobile Check**: Open the live site on your phone and verify the layout looks good.
 
-## 5. Analytics & Tracking (Optional but Recommended)
+## 5. Digital Product Setup
+- [ ] **Create PDF**: Create the "Medical Bill Crusher Kit" PDF.
+- [ ] **Upload PDF**: Upload it to your Cloudflare Pages project (put it in `public/assets/medical-bill-crusher.pdf`) OR host it on Google Drive/Dropbox and update the link in `functions/notify-order.js`.
+
+## 6. Analytics & Tracking (Optional but Recommended)
 - [ ] **Google Analytics**: Create a GA4 property and add the tracking ID to `index.html` or via a tag manager.
 - [ ] **Meta Pixel**: Add your Facebook Pixel ID if you plan to run ads.

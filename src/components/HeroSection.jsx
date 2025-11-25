@@ -2,7 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
 
-const HeroSection = ({ headline, subheadline, ctaText, ctaLink, bookCover, showCheckoutForm, CheckoutFormComponent }) => {
+const HeroSection = ({ headline, subheadline, ctaText, ctaLink, bookCover, showCheckoutForm, CheckoutFormComponent, darkMode = false }) => {
     return (
         <section className="hero-section" style={{
             position: 'relative',
@@ -11,7 +11,8 @@ const HeroSection = ({ headline, subheadline, ctaText, ctaLink, bookCover, showC
             alignItems: 'center',
             justifyContent: 'center',
             overflow: 'hidden',
-            backgroundColor: '#ffffff', /* White Background */
+            backgroundColor: darkMode ? '#0a0a0a' : '#ffffff',
+            color: darkMode ? '#ffffff' : '#0a0a0a',
             padding: '4rem 0'
         }}>
             <div className="container" style={{ display: 'flex', flexDirection: 'row', alignItems: 'center', gap: '4rem', flexWrap: 'wrap' }}>
@@ -48,7 +49,7 @@ const HeroSection = ({ headline, subheadline, ctaText, ctaLink, bookCover, showC
                                 initial={{ opacity: 0, x: -20 }}
                                 animate={{ opacity: 1, x: 0 }}
                                 transition={{ duration: 0.8 }}
-                                style={{ marginBottom: '1.5rem', color: '#0a0a0a' /* Black Text */ }}
+                                style={{ marginBottom: '1.5rem', color: darkMode ? '#ffffff' : '#0a0a0a' }}
                             >
                                 {headline}
                             </motion.h1>
@@ -56,7 +57,7 @@ const HeroSection = ({ headline, subheadline, ctaText, ctaLink, bookCover, showC
                                 initial={{ opacity: 0, x: -20 }}
                                 animate={{ opacity: 1, x: 0 }}
                                 transition={{ duration: 0.8, delay: 0.2 }}
-                                style={{ fontSize: '1.5rem', marginBottom: '2.5rem', color: '#4a4a4a' /* Dark Grey Text */ }}
+                                style={{ fontSize: '1.5rem', marginBottom: '2.5rem', color: darkMode ? '#cccccc' : '#4a4a4a' }}
                             >
                                 {subheadline}
                             </motion.p>
